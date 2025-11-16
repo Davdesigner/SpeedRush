@@ -4,12 +4,19 @@ SpeedRush is a turn-based, time-focused racing simulation game built with C# and
 Players select a car, manage fuel, speed, and time, and attempt to complete 5 laps before resources run out.
 
 This project demonstrates key programming concepts:
+
 ✔ OOP Classes
+
 ✔ Control structures
+
 ✔ Data structures
+
 ✔ Exception handling
+
 ✔ WPF UI
+
 ✔ Unit testing
+
 ✔ XML documentation
 
 # 📌 Features
