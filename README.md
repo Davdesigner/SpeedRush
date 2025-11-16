@@ -1,4 +1,4 @@
-🚗 SpeedRush – Time-Based Racing Simulation (WPF .NET)
+# 🚗 SpeedRush – Time-Based Racing Simulation (WPF .NET)
 
 SpeedRush is a turn-based, time-focused racing simulation game built with C# and WPF.
 Players select a car, manage fuel, speed, and time, and attempt to complete 5 laps before resources run out.
