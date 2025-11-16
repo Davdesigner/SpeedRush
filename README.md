@@ -12,8 +12,8 @@ This project demonstrates key programming concepts:
 ✔ Unit testing
 ✔ XML documentation
 
-#📌 Features
-#🎮 Core Gameplay
+# 📌 Features
+# 🎮 Core Gameplay
 
 Choose from multiple car types (different speed, fuel capacity, fuel consumption).
 
@@ -35,7 +35,7 @@ Fuel runs out, or
 
 Time reaches zero.
 
-🖥 WPF User Interface
+# 🖥 WPF User Interface
 
 The UI displays:
 
@@ -51,7 +51,7 @@ Action buttons
 
 Car selection dropdown
 
-#🏛 Project Structure
+# 🏛 Project Structure
 
 ```
 SpeedRush/
@@ -72,7 +72,7 @@ SpeedRush/
 
 
 
-#🚘 How to Play
+# 🚘 How to Play
 
 Run the application.
 
@@ -98,7 +98,7 @@ Lap counter
 
 Finish all 5 laps before time/fuel runs out to win.
 
-🛠 How to Run the Project
+# 🛠 How to Run the Project
 
 Prerequisites
 
@@ -113,8 +113,9 @@ WPF Desktop Development workload installed
 Run Steps
 
 Clone the repository:
-
+```
 git clone https://github.com/YourUsername/SpeedRush.git
+```
 
 2. Open SpeedRush.csproj in Visual Studio.
 
@@ -133,8 +134,8 @@ Located in the Tests/ folder:
 
 Run tests in Visual Studio using Test Explorer.
 
-#🧱 Architecture Overview
-#🧩 Components:
+# 🧱 Architecture Overview
+# 🧩 Components:
 
 Car Class: Holds speed, fuel capacity, and consumption.
 
@@ -158,13 +159,13 @@ Invalid actions
 
 Out-of-range speed
 
-#🎥 Demo Video
+# 🎥 Demo Video
 
 (Insert your video link here)
 Example:
 https://youtu.be/xxxxxxxx
 
-#📝 License
+# 📝 License
 
 This project is created for educational purposes under course requirements.
 
