@@ -58,15 +58,16 @@ SpeedRush/
 │── MainWindow.xaml
 │── MainWindow.xaml.cs
 │── Models/
-│     ├── Car.cs
-│     ├── Track.cs
-│     ├── RaceManager.cs
+│ ├── Car.cs
+│ ├── Track.cs
+│ └── RaceManager.cs
 │── Tests/
-│     ├── FuelTests.cs
-│     ├── LapTests.cs
-│     ├── SpeedTests.cs
+│ ├── FuelTests.cs
+│ ├── LapTests.cs
+│ └── SpeedTests.cs
 │── README.md
-│── SpeedRush.csproj
+└── SpeedRush.csproj
+
 
 🚘 How to Play
 
