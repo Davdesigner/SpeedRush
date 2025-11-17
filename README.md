@@ -121,7 +121,7 @@ Run Steps
 
 Clone the repository:
 ```
-git clone https://github.com/YourUsername/SpeedRush.git
+git clone https://github.com/Davdesigner/SpeedRush.git
 ```
 
 2. Open SpeedRush.csproj in Visual Studio.
@@ -168,9 +168,7 @@ Out-of-range speed
 
 # 🎥 Demo Video
 
-(Insert your video link here)
-Example:
-https://youtu.be/xxxxxxxx
+
 
 # 📝 License
 
