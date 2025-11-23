@@ -16,25 +16,25 @@ This project demonstrates key programming concepts:
 ### Core Gameplay
 Choose from multiple car types (different speed, fuel capacity, fuel consumption).
 
-- * Race on a 5-lap track.
-- * Turn-based actions:
-- * Speed Up – increases speed but uses more fuel.
-- * Maintain Speed – balanced fuel usage.
-- * Refuel – refills fuel but costs time.
-- * Game ends when:
-- * All laps are completed, or
-- * Fuel runs out, or
-- * Time reaches zero.
+- Race on a 5-lap track.
+- Turn-based actions:
+- Speed Up – increases speed but uses more fuel.
+- Maintain Speed – balanced fuel usage.
+- Refuel – refills fuel but costs time.
+- Game ends when:
+- All laps are completed, or
+- Fuel runs out, or
+- Time reaches zero.
 
 ## WPF User Interface
 ### The UI displays:
 
-- * Current lap (x/5)
-- * Fuel level (ProgressBar)
-- * Time remaining (ProgressBar)
-- * Speed / current status
-- * Action buttons
-- * Car selection dropdown
+- Current lap (x/5)
+- Fuel level (ProgressBar)
+- Time remaining (ProgressBar)
+- Speed / current status
+- Action buttons
+- Car selection dropdown
 
 🏛 Project Structure
 ```
@@ -84,121 +84,53 @@ Finish all 5 laps before time/fuel runs out to win.
 - Windows operating system (for WPF support)
 - Visual Studio 2022 or Visual Studio Code with C# extension
 
-### Running the Game
-1. **Clone or Download** the project files
-2. **Open Terminal/Command Prompt** in the project directory
-3. **Build the Project**:
-   ```bash
-   dotnet build
-   ```
-4. **Run the Game**:
-   ```bash
-   dotnet run
-   ```
+Run Steps
 
-### Running Tests
-To run the unit tests:
-```bash
-cd UnitTests
-dotnet test
+Clone the repository:
+```
+git clone https://github.com/Davdesigner/SpeedRush.git
 ```
 
-### Alternative: Using Visual Studio
-1. Open `CSharpSpeedRush.csproj` in Visual Studio
-2. Press F5 to build and run the application
-3. Use Test Explorer to run unit tests
+2. Open SpeedRush.csproj in Visual Studio.
 
-## Project Structure
+3. Press F5 or click Start to run.
 
-```
-CSharpSpeedRush/
-├── Models/
-│   ├── Car.cs              # Car class with attributes and methods
-│   ├── Track.cs            # Track management and lap progression
-│   ├── RaceManager.cs      # Game state and logic management
-│   └── GameEnums.cs        # Enums for car types, game states, and actions
-├── UnitTests/
-│   ├── CarTests.cs         # Unit tests for Car class
-│   ├── TrackTests.cs       # Unit tests for Track class
-│   └── RaceManagerTests.cs # Unit tests for RaceManager class
-├── MainWindow.xaml         # Main UI layout
-├── MainWindow.xaml.cs      # UI logic and event handling
-├── App.xaml               # Application configuration
-├── App.xaml.cs            # Application startup logic
-└── README.md              # This file
-```
+## Unit Tests
 
-## Technical Features
+Located in the Tests/ folder:
 
-### Object-Oriented Design
-- **Car Class**: Encapsulates car properties and behaviors
-- **Track Class**: Manages race progress and lap completion
-- **RaceManager Class**: Coordinates game state and logic
-- **Proper Encapsulation**: Private fields with public properties and methods
+| Test Name         | Purpose                                      |
+| ----------------- | -------------------------------------------- |
+| **FuelTests.cs**  | Verifies correct fuel consumption per action |
+| **LapTests.cs**   | Ensures laps progress correctly              |
+| **SpeedTests.cs** | Validates speed increase and status effects  |
 
-### Data Structures Used
-- **List<Car>**: Stores available car options
-- **List<TimeSpan>**: Tracks lap completion times
-- **Enums**: CarType, GameState, PlayerAction for type safety
-- **Events**: For UI updates and state change notifications
 
-### Exception Handling
-- **InvalidOperationException**: For invalid game actions (exceeding max speed, refueling full tank)
-- **ArgumentNullException**: For null parameter validation
-- **Try-Catch Blocks**: In UI event handlers for graceful error handling
+Run tests in Visual Studio using Test Explorer.
 
-### WPF Features
-- **Data Binding**: Real-time UI updates
-- **Progress Bars**: Visual fuel and time indicators
-- **Event-Driven Architecture**: Responsive user interface
-- **XAML Layout**: Professional UI design
+## Architecture Overview
+### Components:
 
-### Optional Enhancements Implemented
-- **Real-Time Decay**: Optional DispatcherTimer for gradual fuel/time consumption
-- **Car-Specific Strategies**: Different performance characteristics per car type
-- **Enhanced Visuals**: Progress indicators and color-coded status bars
+- Car Class: Holds speed, fuel capacity, and consumption.
+- RaceManager: Main game logic controller.
+- Track: Handles laps and distance.
+- WPF UI: Displays all real-time stats.
 
-## Game Strategy Tips
+## Design Choices
 
-1. **Choose Your Car Wisely**: 
-   - Eco Car for beginners (forgiving fuel consumption)
-   - Sports Car for balanced gameplay
-   - Race Car for experienced players seeking challenge
+- List<Car> used for car selection.
+- Enum ActionType { SpeedUp, Maintain, Refuel } for turn actions.
+- Exception Handling used for:
+- Fuel overfill attempts
+- Invalid actions
+- Out-of-range speed
 
-2. **Fuel Management**:
-   - Monitor fuel levels constantly
-   - Plan pit stops strategically
-   - Don't wait until fuel is critically low
+## Demo Video
 
-3. **Speed vs. Efficiency**:
-   - Higher speeds complete laps faster but consume more fuel
-   - Sometimes maintaining speed is better than speeding up
-   - Use pit stops to reset your strategy
 
-4. **Time Management**:
-   - You have 5 minutes total
-   - Each action consumes time based on current speed
-   - Balance speed with fuel efficiency for optimal time usage
 
-## Development Notes
+## License
 
-This project demonstrates:
-- **Clean Architecture**: Separation of concerns between UI, business logic, and data models
-- **SOLID Principles**: Single responsibility, open/closed, and dependency inversion
-- **Test-Driven Development**: Comprehensive unit test coverage
-- **Exception Safety**: Robust error handling throughout the application
-- **Documentation**: XML documentation for all public methods and classes
+This project is created for educational purposes under course requirements.
 
-## Future Enhancements
-
-Potential improvements could include:
-- Multiple track types with different characteristics
-- Weather conditions affecting performance
-- Multiplayer racing capabilities
-- Save/load game functionality
-- Achievement system
-- Sound effects and animations
-
----
-
-**Developed as part of a .NET WPF learning project focusing on object-oriented programming, data structures, exception handling, and user interface design.**
+done by David Ubushakebwimana
