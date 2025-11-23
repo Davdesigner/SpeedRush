@@ -1,0 +1,161 @@
+<Window x:Class="CSharpSpeedRush.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="SpeedRush" Height="600" Width="800"
+    ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen"
+    Background="#000000">
+    
+    <Grid Margin="10">
+        <Grid.Resources>
+            <Style x:Key="DarkButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="#1f2937"/>
+                <Setter Property="Foreground" Value="#E6F0FF"/>
+                <Setter Property="BorderBrush" Value="#111827"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Style.Triggers>
+                    <Trigger Property="IsEnabled" Value="False">
+                        <Setter Property="Opacity" Value="0.9"/>
+                        <Setter Property="Background" Value="#1f2937"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Title -->
+        <TextBlock Grid.Row="0" Text="SpeedRush" FontSize="24" FontWeight="Bold" 
+               HorizontalAlignment="Center" Margin="0,0,0,20" Foreground="#E6F0FF"/>
+        
+        <!-- Car Selection -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+            <TextBlock Text="Select Car:" VerticalAlignment="Center" Margin="0,0,10,0" FontWeight="Bold" Foreground="#E6F0FF"/>
+            <ComboBox x:Name="CarSelectionComboBox" Width="200" Height="30" 
+                      DisplayMemberPath="Name" SelectionChanged="CarSelectionComboBox_SelectionChanged"
+                      Background="#0f1724" Foreground="#E6F0FF" BorderBrush="#1f2937">
+                <ComboBox.Resources>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Background" Value="#16213e"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="BorderBrush" Value="#0f3460"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsHighlighted" Value="True">
+                                <Setter Property="Background" Value="#ff6b35"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ComboBox.Resources>
+            </ComboBox>
+                    <Button x:Name="StartRaceButton" Content="Start Race" Width="100" Height="30" 
+                                Margin="10,0,0,0" Click="StartRaceButton_Click" IsEnabled="False"
+                                Style="{StaticResource DarkButtonStyle}"/>
+        </StackPanel>
+        
+        <!-- Game Info Panel -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- Left Panel - Race Status -->
+            <Border Grid.Column="0" BorderBrush="#111827" BorderThickness="2" Padding="15" Margin="0,0,10,0" Background="#07111A">
+                <StackPanel>
+                    <TextBlock Text="Race Status" FontSize="16" FontWeight="Bold" Margin="0,0,0,15" Foreground="#E6F0FF"/>
+                    
+                    <!-- Current Lap -->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock Text="Current Lap:" Width="100" FontWeight="Bold" Foreground="#E6F0FF"/>
+                        <TextBlock x:Name="CurrentLapLabel" Text="1/5" Foreground="#E6F0FF"/>
+                    </StackPanel>
+                    
+                    <!-- Fuel Level -->
+                    <StackPanel Margin="0,0,0,10">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <TextBlock Text="Fuel Level:" Width="100" FontWeight="Bold" Foreground="#E6F0FF"/>
+                            <TextBlock x:Name="FuelLevelLabel" Text="100%" Foreground="#7CFC00"/>
+                        </StackPanel>
+                        <ProgressBar x:Name="FuelProgressBar" Height="20" Maximum="100" Value="100" 
+                                     Foreground="#7CFC00" Background="#0b1220"/>
+                    </StackPanel>
+                    
+                    <!-- Time Remaining -->
+                    <StackPanel Margin="0,0,0,10">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <TextBlock Text="Time Left:" Width="100" FontWeight="Bold" Foreground="#E6F0FF"/>
+                            <TextBlock x:Name="TimeRemainingLabel" Text="5:00" Foreground="#00BFFF"/>
+                        </StackPanel>
+                        <ProgressBar x:Name="TimeProgressBar" Height="20" Maximum="100" Value="100" 
+                                     Foreground="#00BFFF" Background="#0b1220"/>
+                    </StackPanel>
+                    
+                    <!-- Current Speed -->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock Text="Speed:" Width="100" FontWeight="Bold" Foreground="#E6F0FF"/>
+                        <TextBlock x:Name="SpeedLabel" Text="0 mph" Foreground="#00BFFF"/>
+                    </StackPanel>
+                    
+                    <!-- Progress Indicator -->
+                    <StackPanel Margin="0,0,0,10">
+                        <TextBlock Text="Lap Progress:" FontWeight="Bold" Margin="0,0,0,5" Foreground="#E6F0FF"/>
+                        <TextBlock x:Name="ProgressIndicatorLabel" Text="[----------]" 
+                                   FontFamily="Consolas" FontSize="14" Foreground="#E6F0FF"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            
+            <!-- Right Panel - Car Info and Actions -->
+            <Border Grid.Column="1" BorderBrush="#111827" BorderThickness="2" Padding="15" Margin="10,0,0,0" Background="#07111A">
+                <StackPanel>
+                    <TextBlock Text="Car Information" FontSize="16" FontWeight="Bold" Margin="0,0,0,15" Foreground="#E6F0FF"/>
+                    
+                    <!-- Car Details -->
+                    <StackPanel x:Name="CarInfoPanel" Visibility="Collapsed">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <TextBlock Text="Car:" Width="80" FontWeight="Bold" Foreground="#E6F0FF"/>
+                            <TextBlock x:Name="CarNameLabel" Text="" Foreground="#FFD700"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <TextBlock Text="Type:" Width="80" FontWeight="Bold" Foreground="White"/>
+                            <TextBlock x:Name="CarTypeLabel" Text="" Foreground="#17a2b8"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <TextBlock Text="Max Speed:" Width="80" FontWeight="Bold" Foreground="White"/>
+                            <TextBlock x:Name="MaxSpeedLabel" Text="" Foreground="#dc3545"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                            <TextBlock Text="Fuel Cap:" Width="80" FontWeight="Bold" Foreground="White"/>
+                            <TextBlock x:Name="FuelCapacityLabel" Text="" Foreground="#28a745"/>
+                        </StackPanel>
+                    </StackPanel>
+                    
+                    <!-- Action Buttons -->
+                        <TextBlock Text="Actions" FontSize="14" FontWeight="Bold" Margin="0,0,0,10" Foreground="#E6F0FF"/>
+                        <Button x:Name="SpeedUpButton" Content="Speed Up (+5 mph)" Height="35" Margin="0,0,0,10" 
+                            Click="SpeedUpButton_Click" IsEnabled="False" Style="{StaticResource DarkButtonStyle}" Foreground="#0B5394"/>
+                        <Button x:Name="MaintainSpeedButton" Content="Maintain Speed" Height="35" Margin="0,0,0,10" 
+                            Click="MaintainSpeedButton_Click" IsEnabled="False" Style="{StaticResource DarkButtonStyle}" Foreground="#9FB4FF"/>
+                        <Button x:Name="PitStopButton" Content="Refuel" Height="35" Margin="0,0,0,20" 
+                            Click="PitStopButton_Click" IsEnabled="False" Style="{StaticResource DarkButtonStyle}" Foreground="#006400"/>
+                    
+                    <!-- Game Status -->
+                    <TextBlock x:Name="GameStatusLabel" Text="Select a car to start racing!" 
+                               FontWeight="Bold" TextWrapping="Wrap" Foreground="#28a745"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+        
+        <!-- Bottom Panel - Reset Button -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <Button x:Name="ResetGameButton" Content="Restart" Width="120" Height="35" 
+                Click="ResetGameButton_Click" Style="{StaticResource DarkButtonStyle}"/>
+            <Button x:Name="ExitButton" Content="Exit" Width="80" Height="35" Margin="20,0,0,0" 
+                Click="ExitButton_Click" Style="{StaticResource DarkButtonStyle}"/>
+        </StackPanel>
+    </Grid>
+</Window>
