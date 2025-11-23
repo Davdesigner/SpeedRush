@@ -1,37 +1,73 @@
-# C# Speed Rush - Time-Based Racing Game Simulation
+# Speed Rush - Time-Based Racing Game Simulation
+🚗 SpeedRush – Time-Based Racing Simulation (WPF .NET)
+SpeedRush is a turn-based, time-focused racing simulation game built with C# and WPF. Players select a car, manage fuel, speed, and time, and attempt to complete 5 laps before resources run out.
 
-A turn-based, time-focused racing simulation game built with .NET WPF Forms. Players manage fuel, time, and speed as they progress through multiple laps in this strategic racing experience.
+This project demonstrates key programming concepts:
 
-## Game Description
+- ✔ OOP Classes
+- ✔ Control structures
+- ✔ Data structures
+- ✔ Exception handling
+- ✔ WPF UI
+- ✔ Unit testing
+- ✔ XML documentation
 
-C# Speed Rush is a racing simulation where players select from different car types and make strategic decisions each turn to complete a 5-lap race. The game focuses on resource management rather than real-time action, requiring players to balance speed, fuel consumption, and time management.
+## Features
+### Core Gameplay
+Choose from multiple car types (different speed, fuel capacity, fuel consumption).
 
+- * Race on a 5-lap track.
+- * Turn-based actions:
+- * Speed Up – increases speed but uses more fuel.
+- * Maintain Speed – balanced fuel usage.
+- * Refuel – refills fuel but costs time.
+- * Game ends when:
+- * All laps are completed, or
+- * Fuel runs out, or
+- * Time reaches zero.
+
+## WPF User Interface
+### The UI displays:
+
+- * Current lap (x/5)
+- * Fuel level (ProgressBar)
+- * Time remaining (ProgressBar)
+- * Speed / current status
+- * Action buttons
+- * Car selection dropdown
+
+🏛 Project Structure
+```
+SpeedRush/
+│── App.xaml
+│── MainWindow.xaml
+│── MainWindow.xaml.cs
+│── Models/
+│   ├── Car.cs
+│   ├── Track.cs
+│   └── RaceManager.cs
+│── Tests/
+│   ├── FuelTests.cs
+│   ├── LapTests.cs
+│   └── SpeedTests.cs
+│── README.md
+└── SpeedRush.csproj
+```
 ## How to Play
+### Run the application.
 
-### Getting Started
-1. **Select a Car**: Choose from four different car brands with varied characteristics:
-   - **Ford (SportsCar)**: Balanced speed and fuel capacity
-   - **Chevrolet (EcoCar)**: Lower speed but excellent fuel efficiency
-   - **Dodge (RaceCar)**: Highest speed but consumes more fuel
-   - **Benz (SportsCar)**: Premium balance of speed and fuel efficiency
+- Choose a car from the dropdown.
+- Click Start Race.
+- Each turn, choose one action:
+- Speed Up: go faster, burn more fuel.
+- Maintain Speed: keep steady.
+- Pit Stop: refuel but lose time.
+- Watch your:
+- Fuel bar
+- Time bar
+- Lap counter
 
-2. **Start the Race**: Click "Start Race" to begin your 5-lap challenge
-
-### Game Mechanics
-- **Turn-Based System**: Each action represents one turn
-- **Actions Available**:
-  - **Speed Up**: Increase speed by 10 mph (consumes more fuel)
-  - **Maintain Speed**: Keep current speed (moderate fuel consumption)
-  - **Pit Stop**: Refuel to maximum capacity (reduces speed by 20 mph)
-
-### Winning Conditions
-- Complete all 5 laps before running out of fuel or time
-- Manage your resources wisely to reach the finish line
-
-### Losing Conditions
-- Run out of fuel before completing the race
-- Run out of time (5-minute limit)
-
+Finish all 5 laps before time/fuel runs out to win.
 ## Car Specifications
 
 | Car Type | Brand | Max Speed | Fuel Capacity | Fuel Consumption | Strategy |
